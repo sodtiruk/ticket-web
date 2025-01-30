@@ -5,7 +5,7 @@ import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 
-console.log(process.env);
+// console.log(process.env);
 
 
 root.render(
