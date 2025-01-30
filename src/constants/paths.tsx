@@ -1,5 +1,4 @@
 
-
 export const PATHS = {
     HOME: "/",
     ABOUT: "/about",
@@ -7,3 +6,4 @@ export const PATHS = {
     LOGIN: "/login",
     NOT_FOUND: "*",
 };
+

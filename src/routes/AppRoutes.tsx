@@ -5,18 +5,20 @@ import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import MainLayout from "../pages/MainLayout";
 import Login from "../pages/Login/Login";
+import { PATHS } from "../constants/paths";
+
 
 const AppRoutes = () => {
   return (
     <Routes>
         {/* <Route index element={<Navigate to={"/"}/>} /> */}
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<Navigate to={"/login"}/>}/>
+        <Route path={PATHS.LOGIN} element={<Login />} />
+        <Route path="*" element={<Navigate to={PATHS.LOGIN}/>}/>
 
         <Route element={<MainLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path={PATHS.HOME} element={<Home />} />
+          <Route path={PATHS.ABOUT} element={<About />} />
+          <Route path={PATHS.CONTACT} element={<Contact />} />
         </Route>
     </Routes>
   );
