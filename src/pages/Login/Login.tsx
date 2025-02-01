@@ -35,6 +35,7 @@ const Login: React.FC = () => {
                                 label="Email"
                                 variant="outlined"
                                 type="email"
+                                required
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
@@ -45,6 +46,7 @@ const Login: React.FC = () => {
                                 label="Password"
                                 variant="outlined"
                                 type="password"
+                                required
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
