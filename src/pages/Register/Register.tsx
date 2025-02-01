@@ -1,10 +1,10 @@
 import { Box, Button, Paper, TextField, Typography } from "@mui/material"
 import { useState } from "react";
-import './Login.css';
-import { PATHS } from "../../constants/paths";
+import './Register.css';
 import { Link } from "react-router-dom";
+import { PATHS } from "../../constants/paths";
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -26,7 +26,7 @@ const Login: React.FC = () => {
                     className="w-96 p-8"
                 >
                     <Typography variant="h4" className="text-center">
-                        เข้าสู่ระบบ
+                        ลงทะเบียน
                     </Typography>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4 mt-2">
@@ -37,6 +37,16 @@ const Login: React.FC = () => {
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <TextField
+                                fullWidth
+                                label="Password"
+                                variant="outlined"
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
                         <div className="mb-6">
@@ -56,13 +66,13 @@ const Login: React.FC = () => {
                             color="primary"
                             className="mb-4"
                         >
-                            เข้าสู่ระบบ 
+                            ลงทะเบียน 
                         </Button>
                         <div className="text-center">
                             <Typography variant="body2">
-                                ยังไม่มี username และ password ?{' '}
-                                <Link to={PATHS.REGISTER} className="text-blue-500 hover:underline">
-                                    ลงทะเบียน 
+                                มี username และ password แล้ว?{' '}
+                                <Link to={PATHS.LOGIN} className="text-blue-500 hover:underline">
+                                    เข้าสู่ระบบ 
                                 </Link>
                             </Typography>
                         </div>
@@ -73,4 +83,4 @@ const Login: React.FC = () => {
     )
 }
 
-export default Login
+export default Register 

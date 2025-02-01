@@ -1,11 +1,12 @@
 // src/routes/AppRoutes.tsx
 import { Routes, Route, Navigate } from "react-router-dom";
+import { PATHS } from "../constants/paths";
 import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import MainLayout from "../pages/MainLayout";
 import Login from "../pages/Login/Login";
-import { PATHS } from "../constants/paths";
+import Register from "../pages/Register/Register";
 
 
 const AppRoutes = () => {
@@ -13,6 +14,7 @@ const AppRoutes = () => {
     <Routes>
         {/* <Route index element={<Navigate to={"/"}/>} /> */}
         <Route path={PATHS.LOGIN} element={<Login />} />
+        <Route path={PATHS.REGISTER} element={<Register />} />
         <Route path="*" element={<Navigate to={PATHS.LOGIN}/>}/>
 
         <Route element={<MainLayout />}>

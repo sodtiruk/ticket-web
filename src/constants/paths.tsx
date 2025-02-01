@@ -4,6 +4,7 @@ export const PATHS = {
     ABOUT: "/about",
     CONTACT: "/contact",
     LOGIN: "/login",
+    REGISTER: "/register",
     NOT_FOUND: "*",
 };
 
