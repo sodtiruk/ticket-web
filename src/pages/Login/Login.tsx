@@ -23,11 +23,11 @@ const Login: React.FC = () => {
                     elevation={3}
                     className="w-96 p-8"
                 >
-                    <Typography variant="h4" className="text-center mb-6">
+                    <Typography variant="h4" className="text-center">
                         เข้าสู่ระบบ
                     </Typography>
                     <form onSubmit={handleSubmit}>
-                        <div className="mb-4">
+                        <div className="mb-4 mt-2">
                             <TextField
                                 fullWidth
                                 label="Email"
@@ -67,10 +67,6 @@ const Login: React.FC = () => {
                     </form>
                 </Paper>
             </Box>
-
-            <div>
-                Hello world
-            </div>
         </>
     )
 }
