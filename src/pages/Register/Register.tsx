@@ -8,12 +8,15 @@ const Register: React.FC = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [password2, setPassword2] = useState('');
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         // Handle form submission logic here
         console.log('Email:', email);
         console.log('Password:', password);
+        console.log('Password2:', password2);
+        
     };
 
     return (
@@ -32,9 +35,10 @@ const Register: React.FC = () => {
                         <div className="mb-4 mt-2">
                             <TextField
                                 fullWidth
-                                label="Email"
+                                label="อีเมล์"
                                 variant="outlined"
                                 type="email"
+                                required
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
@@ -42,9 +46,10 @@ const Register: React.FC = () => {
                         <div className="mb-4">
                             <TextField
                                 fullWidth
-                                label="Password"
+                                label="รหัสผ่าน"
                                 variant="outlined"
                                 type="password"
+                                required
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
@@ -52,11 +57,12 @@ const Register: React.FC = () => {
                         <div className="mb-6">
                             <TextField
                                 fullWidth
-                                label="Password"
+                                label="ยืนยันรหัสผ่าน "
                                 variant="outlined"
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
+                                type="password2"
+                                required
+                                value={password2}
+                                onChange={(e) => setPassword2(e.target.value)}
                             />
                         </div>
                         <Button
