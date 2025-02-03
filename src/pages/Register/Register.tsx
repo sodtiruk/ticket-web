@@ -3,20 +3,34 @@ import { useState } from "react";
 import './Register.css';
 import { Link } from "react-router-dom";
 import { PATHS } from "../../constants/paths";
+import { AuthService } from "../../services/auth";
+import { AuthRequest } from "../../services/auth/type";
 
 const Register: React.FC = () => {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [password2, setPassword2] = useState('');
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [password2, setPassword2] = useState<string>('');
 
-    const handleSubmit = (event: React.FormEvent) => {
+    const handleSubmitRegister = (event: React.FormEvent<HTMLFormElement>): void => {
         event.preventDefault();
         // Handle form submission logic here
-        console.log('Email:', email);
-        console.log('Password:', password);
-        console.log('Password2:', password2);
-        
+        // console.log('Email:', email);
+        // console.log('Password:', password);
+        // console.log('Password2:', password2);
+
+        if (password !== password2) {
+            alert('Password not match');
+            return;
+        }
+
+        const authRequest: AuthRequest = {
+            email: email,
+            password: password,
+        }
+
+        AuthService.register(authRequest);
+
     };
 
     return (
@@ -31,7 +45,7 @@ const Register: React.FC = () => {
                     <Typography variant="h4" className="text-center">
                         ลงทะเบียน
                     </Typography>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmitRegister}>
                         <div className="mb-4 mt-2">
                             <TextField
                                 fullWidth
@@ -59,7 +73,7 @@ const Register: React.FC = () => {
                                 fullWidth
                                 label="ยืนยันรหัสผ่าน "
                                 variant="outlined"
-                                type="password2"
+                                type="password"
                                 required
                                 value={password2}
                                 onChange={(e) => setPassword2(e.target.value)}
@@ -72,13 +86,13 @@ const Register: React.FC = () => {
                             color="primary"
                             className="mb-4"
                         >
-                            ลงทะเบียน 
+                            ลงทะเบียน
                         </Button>
                         <div className="text-center">
                             <Typography variant="body2">
                                 มี username และ password แล้ว?{' '}
                                 <Link to={PATHS.LOGIN} className="text-blue-500 hover:underline">
-                                    เข้าสู่ระบบ 
+                                    เข้าสู่ระบบ
                                 </Link>
                             </Typography>
                         </div>
