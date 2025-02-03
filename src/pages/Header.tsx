@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { PATHS } from '../constants/paths';
 
 const Header = () => {
   return (
@@ -10,13 +11,13 @@ const Header = () => {
         <nav>
           <ul style={styles.navList}>
             <li style={styles.navItem}>
-              <Link to="/" style={styles.navLink}>Home</Link>
+              <Link to={PATHS.HOME} style={styles.navLink}>Home</Link>
             </li>
             <li style={styles.navItem}>
-              <Link to="/about" style={styles.navLink}>About</Link>
+              <Link to={PATHS.ABOUT} style={styles.navLink}>About</Link>
             </li>
             <li style={styles.navItem}>
-              <Link to="/contact" style={styles.navLink}>Contact</Link>
+              <Link to={PATHS.CONTACT} style={styles.navLink}>Contact</Link>
             </li>
           </ul>
         </nav>
