@@ -1,15 +1,15 @@
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
-import Footer from "./Footer";
+import HeaderTest from "../components/Header/Header";
+import FooterTest from "../components/Footer/Footer";
 
 const MainLayout = () => {
   return (
     <div>
-      <Header />
+      <HeaderTest />
       <main>
         <Outlet /> {/* แสดง Pages ที่ตรงกับ Route */}
       </main>
-      <Footer />
+      <FooterTest />
     </div>
   );
 };
