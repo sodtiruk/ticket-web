@@ -1,18 +1,23 @@
-import axios from 'axios';
-import { AuthRequest } from './type';
+import apiClient from '../apiClient';
+import { BaseResponse, RegisteredResponse, RegisterRequest } from './type';
 
-const registerUser = (authRequest: AuthRequest): void => {
+export const registerUser = async (registerRequest: RegisterRequest): Promise<BaseResponse<RegisteredResponse>> => {
+    try {
+        const response = await apiClient.post<BaseResponse<RegisteredResponse>>(
+            '/Authentication/register',
+            registerRequest
+        );
+        return response.data;
+    } catch (error: unknown) {
 
-    axios.post('https://localhost:8000/api/Authentication/register', {
-            email: authRequest.email,
-            password: authRequest.password,
-        }).then(response => {
-            console.log(response.data);
-        }).catch(error => {
-            console.log(error);
-        });
-}
+        console.log(error);
+        console.log(typeof error);
 
-export const AuthService = {
-    register: registerUser
+
+        if (error instanceof Error) {
+            throw new Error(error.message || 'An unexpected error occurred');
+        } else {
+            throw new Error('An unexpected error occurred');
+        }
+    }
 };
