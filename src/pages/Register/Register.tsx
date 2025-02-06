@@ -59,9 +59,10 @@ const Register: React.FC = () => {
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
+    border: '2px solid #fff',
     boxShadow: 24,
     p: 4,
+    borderRadius: 1,
   };
 
   return (
@@ -73,10 +74,10 @@ const Register: React.FC = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography id="modal-modal-title" variant="h6" component="h2" style={{ color: 'red', textAlign: 'center' }}>
             แจ้งเตือน 
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }} style={{ textAlign: 'center' }}>
             รหัสผ่านไม่ตรงกัน
           </Typography>
         </Box>
